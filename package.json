@@ -1,0 +1,28 @@
+{
+  "name": "javascript-medidorcoopera--dupla",
+  "version": "1.0.0",
+  "description": "",
+  "main": "calculos.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch public public/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larasato-svg/Medidor-Coopera--Dupla.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/larasato-svg/Medidor-Coopera--Dupla/issues"
+  },
+  "homepage": "https://github.com/larasato-svg/Medidor-Coopera--Dupla#readme",
+  "dependencies": {
+    "express": "^5.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
