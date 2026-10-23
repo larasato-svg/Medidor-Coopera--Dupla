@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Consumo Elétrico</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <h1 class="page-title">Calculadora de Consumo Elétrico</h1>
+
+    <!-- 1. BLOCO: ADICIONAR APARELHO -->
+    <section class="card-bloco">
+      <h2 class="card-titulo">Adicionar Aparelho</h2>
+      
+      <form id="form-aparelho" class="form-container">
+        <div class="input-group">
+          <label for="nome">Nome</label>
+          <div class="input-wrapper">
+            <span class="input-icon">📱</span>
+            <input type="text" id="nome" placeholder="ex: Geladeira" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="potencia">Potência (W)</label>
+          <div class="input-wrapper">
+            <span class="input-icon">⚡</span>
+            <input type="number" id="potencia" placeholder="ex: 350" min="0" step="any" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="horas">Horas por dia</label>
+          <div class="input-wrapper">
+            <span class="input-icon">⏰</span>
+            <input type="number" id="horas" placeholder="ex: 24" min="0" max="24" step="any" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="dias">Dias no mês</label>
+          <div class="input-wrapper">
+            <span class="input-icon">📅</span>
+            <input type="number" id="dias" placeholder="ex: 30" min="0" max="31" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-adicionar">
+          <span>+</span> Adicionar Aparelho
+        </button>
+      </form>
+    </section>
+
+    <!-- 2. BLOCO: APARELHOS ADICIONADOS -->
+    <section class="card-bloco">
+      <h2 class="card-titulo">Aparelhos Adicionados</h2>
+      
+      <!-- Requisito: ID da lista devidamente atribuído -->
+      <ol id="lista-orion" class="lista-aparelhos"></ol>
+
+      <!-- Div para exibir a mensagem de erro quando status 400 -->
+      <div id="mensagem-erro" class="mensagem-erro hidden"></div>
+
+      <button type="button" id="btn-simular" class="btn-simular">
+        Simular Consumo
+      </button>
+    </section>
+
+    <!-- 3. BLOCO: RESULTADO DA SIMULAÇÃO -->
+    <section id="resultado" class="card-bloco hidden">
+      <h2 class="card-titulo">Resultado da Simulação</h2>
+
+      <div class="resumo-grid">
+        <div class="resumo-card">
+          <span class="resumo-rotulo">Consumo Total Estimado</span>
+          <span id="consumo-total" class="resumo-valor">0 kWh/mês</span>
+        </div>
+
+        <div class="resumo-card">
+          <span class="resumo-rotulo">Total da Conta (com taxa)</span>
+          <span id="total-conta" class="resumo-valor destaque-valor">R$ 0,00</span>
+        </div>
+
+        <div class="resumo-card">
+          <span class="resumo-rotulo">Painéis Solares</span>
+          <span id="paineis-solares" class="resumo-valor">0 painéis</span>
+        </div>
+      </div>
+
+      <div class="destaque-container">
+        <span class="destaque-tag">Destaque</span>
+        <p class="destaque-texto">
+          Aparelho mais caro: <strong id="aparelho-mais-caro">-</strong>
+        </p>
+      </div>
+
+      <div class="tabela-wrapper">
+        <table class="tabela-detalhes">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Consumo (kWh)</th>
+              <th>Percentual (%)</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-corpo">
+            <!-- Linhas preenchidas pelo JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
